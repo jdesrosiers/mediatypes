@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                            8 January 2022
-Expires: 12 July 2022
+Intended status: Informational                           14 January 2022
+Expires: 18 July 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 July 2022.
+   This Internet-Draft will expire on 18 July 2022.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Polli                     Expires 12 July 2022                  [Page 1]
+Polli                     Expires 18 July 2022                  [Page 1]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Polli                     Expires 12 July 2022                  [Page 2]
+Polli                     Expires 18 July 2022                  [Page 2]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -165,7 +165,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 12 July 2022                  [Page 3]
+Polli                     Expires 18 July 2022                  [Page 3]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -221,7 +221,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 12 July 2022                  [Page 4]
+Polli                     Expires 18 July 2022                  [Page 4]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -277,7 +277,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 12 July 2022                  [Page 5]
+Polli                     Expires 18 July 2022                  [Page 5]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -333,7 +333,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 12 July 2022                  [Page 6]
+Polli                     Expires 18 July 2022                  [Page 6]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -389,7 +389,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 12 July 2022                  [Page 7]
+Polli                     Expires 18 July 2022                  [Page 7]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -445,7 +445,7 @@ Change Log
 
 
 
-Polli                     Expires 12 July 2022                  [Page 8]
+Polli                     Expires 18 July 2022                  [Page 8]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -501,4 +501,4 @@ Author's Address
 
 
 
-Polli                     Expires 12 July 2022                  [Page 9]
+Polli                     Expires 18 July 2022                  [Page 9]
