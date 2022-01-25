@@ -189,12 +189,12 @@ Internet-Draft            REST API Media Types              January 2022
 
 2.2.  The OpenAPI Media Types
 
-   The OpenAPI Specification Media Types convey OpenAPI Specification
-   (OAS) files as defined in [oas] for version 3.0.0 and above.
+   The OpenAPI Specification Media Types convey OpenAPI document (OAS)
+   files as defined in [oas] for version 3.0.0 and above.
 
    Those files can be serialized in [JSON] or [yaml].  Since there are
-   multiple OpenAPI Specification Specifications versions, those media-
-   types support the version parameter.
+   multiple OpenAPI Specification versions, those media-types support
+   the version parameter.
 
    The following examples conveys the desire of a client to receive an
    OpenAPI Specification resource preferably in the following order:
