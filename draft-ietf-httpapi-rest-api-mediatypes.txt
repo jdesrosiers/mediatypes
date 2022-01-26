@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           25 January 2022
-Expires: 29 July 2022
+Intended status: Informational                           26 January 2022
+Expires: 30 July 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 July 2022.
+   This Internet-Draft will expire on 30 July 2022.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Polli                     Expires 29 July 2022                  [Page 1]
+Polli                     Expires 30 July 2022                  [Page 1]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -81,13 +81,18 @@ Table of Contents
      2.2.  The OpenAPI Media Types . . . . . . . . . . . . . . . . .   4
        2.2.1.  Media Type application/openapi+json . . . . . . . . .   4
        2.2.2.  Media Type application/openapi+yaml . . . . . . . . .   5
-   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   5.  Normative References  . . . . . . . . . . . . . . . . . . . .   7
-   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   8
-   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   8
+     2.3.  JSON Schema Media Types . . . . . . . . . . . . . . . . .   6
+       2.3.1.  Media Type application/schema+json  . . . . . . . . .   7
+       2.3.2.  Media Type application/schema-instance+json . . . . .   8
+       2.3.3.  Media Type application/schema+yaml  . . . . . . . . .   9
+       2.3.4.  Media Type application/schema-instance+json . . . . .  10
+   3.  Security Considerations . . . . . . . . . . . . . . . . . . .  11
+   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
+   5.  Normative References  . . . . . . . . . . . . . . . . . . . .  11
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .  12
+   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  13
 
 1.  Introduction
 
@@ -104,12 +109,7 @@ Table of Contents
 
 
 
-
-
-
-
-
-Polli                     Expires 29 July 2022                  [Page 2]
+Polli                     Expires 30 July 2022                  [Page 2]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -165,7 +165,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 29 July 2022                  [Page 3]
+Polli                     Expires 30 July 2022                  [Page 3]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -221,7 +221,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 29 July 2022                  [Page 4]
+Polli                     Expires 30 July 2022                  [Page 4]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -277,7 +277,7 @@ Internet-Draft            REST API Media Types              January 2022
 
 
 
-Polli                     Expires 29 July 2022                  [Page 5]
+Polli                     Expires 30 July 2022                  [Page 5]
 
 Internet-Draft            REST API Media Types              January 2022
 
@@ -321,6 +321,253 @@ Internet-Draft            REST API Media Types              January 2022
 
    Change controller: n/a
 
+2.3.  JSON Schema Media Types
+
+   JSON Schema is a vocabulary that allows to annotate and validate JSON
+   documents (see [jsonschema]).
+
+   This document registers the media types associated to the json and
+   yaml serialization, so that it can be used to simplify the writing of
+   OpenAPI documents.
+
+
+
+
+Polli                     Expires 30 July 2022                  [Page 6]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+2.3.1.  Media Type application/schema+json
+
+   The following information serves as the registration form for the
+   application/schema+json media type.
+
+   Type name: application
+
+   Subtype name: schema+json
+
+   Required parameters: None
+
+   Optional parameters:
+
+   schema:
+      A non-empty list of space-separated URIs, each identifying a JSON
+      Schema resource.  The instance SHOULD successfully validate
+      against at least one of these meta-schemas.  Non-validating meta-
+      schemas MAY be included for purposes such as allowing clients to
+      make use of older versions of a meta-schema as long as the runtime
+      instance validates against that older version;
+
+   unrecognized parameters should be ignored
+
+   Encoding considerations: Same as [JSON]
+
+   Security considerations: see the "Security consideration" section of
+   [jsonschema]
+
+   Interoperability considerations: see the "General consideration"
+   section of [jsonschema] in addition to [JSON]
+
+   Published specification: (this document)
+
+   Applications that use this media type: HTTP
+
+   Fragment identifier considerations: See the "Fragment identifiers"
+   section of [jsonschema]
+
+   Additional information:
+
+   Deprecated alias names for this type: n/a
+
+   Magic number(s): n/a
+
+   File extension(s): json
+
+   Macintosh file type code(s): n/a
+
+
+
+
+Polli                     Expires 30 July 2022                  [Page 7]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+   Person and email address to contact for further information: See
+   Authors' Addresses section.
+
+   Intended usage: COMMON
+
+   Restrictions on usage: None.
+
+   Author: See Authors' Addresses section.
+
+   Change controller: n/a
+
+2.3.2.  Media Type application/schema-instance+json
+
+   The following information serves as the registration form for the
+   application/schema-instance+json media type.
+
+   Type name: application
+
+   Subtype name: schema-instance+json
+
+   Required parameters: None
+
+   Optional parameters: same as Section 2.3.1
+
+   Encoding considerations: Same as [JSON]
+
+   Security considerations: same as Section 2.3.1
+
+   Interoperability considerations: same as Section 2.3.1
+
+   Published specification: (this document)
+
+   Applications that use this media type: same as Section 2.3.1
+
+   Fragment identifier considerations: same as Section 2.3.1
+
+   Additional information:
+
+   Deprecated alias names for this type: n/a
+
+   Magic number(s): n/a
+
+   File extension(s): json
+
+   Macintosh file type code(s): n/a
+
+   Person and email address to contact for further information: See
+   Authors' Addresses section.
+
+
+
+Polli                     Expires 30 July 2022                  [Page 8]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+   Intended usage: COMMON
+
+   Restrictions on usage: None.
+
+   Author: See Authors' Addresses section.
+
+   Change controller: n/a
+
+2.3.3.  Media Type application/schema+yaml
+
+   The following information serves as the registration form for the
+   application/schema+yaml media type.
+
+   Type name: application
+
+   Subtype name: schema+yaml
+
+   Required parameters: None
+
+   Optional parameters: same as Section 2.3.1
+
+   Encoding considerations: Same as [JSON] and Section 2.1
+
+   Security considerations: see the "Security consideration" section of
+   [jsonschema] and Section 2.1
+
+   Interoperability considerations: see the "General consideration"
+   section of [jsonschema] in addition to [JSON] and Section 2.1
+
+   Published specification: (this document)
+
+   Applications that use this media type: HTTP
+
+   Fragment identifier considerations: See the "Fragment identifiers"
+   section of [jsonschema]
+
+   Additional information:
+
+   Deprecated alias names for this type: n/a
+
+   Magic number(s): n/a
+
+   File extension(s): same as Section 2.1
+
+   Macintosh file type code(s): n/a
+
+   Person and email address to contact for further information: See
+   Authors' Addresses section.
+
+
+
+Polli                     Expires 30 July 2022                  [Page 9]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+   Intended usage: COMMON
+
+   Restrictions on usage: None.
+
+   Author: See Authors' Addresses section.
+
+   Change controller: n/a
+
+2.3.4.  Media Type application/schema-instance+json
+
+   The following information serves as the registration form for the
+   application/schema-instance+yaml media type.
+
+   Type name: application
+
+   Subtype name: schema-instance+yaml
+
+   Required parameters: None
+
+   Optional parameters: same as Section 2.3.1
+
+   Encoding considerations: Same as [yaml]
+
+   Security considerations: same as Section 2.3.3
+
+   Interoperability considerations: same as Section 2.3.3
+
+   Published specification: (this document)
+
+   Applications that use this media type: same as Section 2.3.3
+
+   Fragment identifier considerations: same as Section 2.3.3
+
+   Additional information:
+
+   Deprecated alias names for this type: n/a
+
+   Magic number(s): n/a
+
+   File extension(s): same as Section 2.1
+
+   Macintosh file type code(s): n/a
+
+   Person and email address to contact for further information: See
+   Authors' Addresses section.
+
+   Intended usage: COMMON
+
+
+
+
+Polli                     Expires 30 July 2022                 [Page 10]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+   Restrictions on usage: None.
+
+   Author: See Authors' Addresses section.
+
+   Change controller: n/a
+
 3.  Security Considerations
 
    Security requirements for both media type and media type suffix
@@ -331,36 +578,55 @@ Internet-Draft            REST API Media Types              January 2022
    This specification defines the following new Internet media types
    [MEDIATYPE].
 
-
-
-Polli                     Expires 29 July 2022                  [Page 6]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
    IANA has updated the "Media Types" registry at
    https://www.iana.org/assignments/media-types
    (https://www.iana.org/assignments/media-types) with the registration
    information provided below.
 
-          +==========================+==========================+
-          | Media Type               | Section                  |
-          +==========================+==========================+
-          | application/yaml         | Section 2.1 of ThisRFC   |
-          +--------------------------+--------------------------+
-          | application/openapi+yaml | Section 2.2.2 of ThisRFC |
-          +--------------------------+--------------------------+
-          | application/openapi+json | Section 2.2.1 of ThisRFC |
-          +--------------------------+--------------------------+
+     +==================================+===========================+
+     | Media Type                       | Section                   |
+     +==================================+===========================+
+     | application/yaml                 | Section 2.1 of ThisRFC    |
+     +----------------------------------+---------------------------+
+     | application/openapi+yaml         | Section 2.2.2 of ThisRFC  |
+     +----------------------------------+---------------------------+
+     | application/openapi+json         | Section 2.2.1 of ThisRFC  |
+     +----------------------------------+---------------------------+
+     | application/schema+json          | {schema-json}} of ThisRFC |
+     +----------------------------------+---------------------------+
+     | application/schema+yaml          | {schema-yaml}} of ThisRFC |
+     +----------------------------------+---------------------------+
+     | application/schema-instance+json | {schema-instance-json}}   |
+     |                                  | of ThisRFC                |
+     +----------------------------------+---------------------------+
+     | application/schema-instance+yaml | {schema-instance-yaml}}   |
+     |                                  | of ThisRFC                |
+     +----------------------------------+---------------------------+
 
-                                  Table 1
+                                 Table 1
 
 5.  Normative References
+
+
+
+
+
+
+
+Polli                     Expires 30 July 2022                 [Page 11]
+
+Internet-Draft            REST API Media Types              January 2022
+
 
    [JSON]     Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
+
+   [jsonschema]
+              Wright, A., Andrews, H., Hutton, B., and G. Dennis, "JSON
+              Schema Core", 28 January 2020,
+              <https://json-schema.org/specification.html>.
 
    [MEDIATYPE]
               Freed, N., Klensin, J., and T. Hansen, "Media Type
@@ -386,14 +652,6 @@ Internet-Draft            REST API Media Types              January 2022
               RFC 7405, DOI 10.17487/RFC7405, December 2014,
               <https://www.rfc-editor.org/info/rfc7405>.
 
-
-
-
-Polli                     Expires 29 July 2022                  [Page 7]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -407,6 +665,14 @@ Appendix A.  Acknowledgements
    Thanks to Erik Wilde and David Biesack for being the initial
    contributors of this specification, and to Darrel Miller and Rich
    Salz for their support during the adoption phase.
+
+
+
+
+Polli                     Expires 30 July 2022                 [Page 12]
+
+Internet-Draft            REST API Media Types              January 2022
+
 
    In addition to the people above, this document owes a lot to the
    extensive discussion inside and outside the HTTPAPI workgroup,
@@ -445,4 +711,18 @@ Author's Address
 
 
 
-Polli                     Expires 29 July 2022                  [Page 8]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Polli                     Expires 30 July 2022                 [Page 13]
