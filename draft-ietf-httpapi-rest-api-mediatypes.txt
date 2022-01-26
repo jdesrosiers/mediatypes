@@ -47,17 +47,6 @@ Status of This Memo
 
    This Internet-Draft will expire on 30 July 2022.
 
-
-
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 1]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
 Copyright Notice
 
    Copyright (c) 2022 IETF Trust and the persons identified as the
@@ -74,21 +63,20 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
-   2.  Media Type registrations  . . . . . . . . . . . . . . . . . .   3
-     2.1.  Media Type application/yaml . . . . . . . . . . . . . . .   3
-     2.2.  The +yaml Structured Syntax Suffix  . . . . . . . . . . .   4
-     2.3.  The OpenAPI Media Types . . . . . . . . . . . . . . . . .   5
-       2.3.1.  Media Type application/openapi+json . . . . . . . . .   6
-       2.3.2.  Media Type application/openapi+yaml . . . . . . . . .   7
-   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
-   5.  Normative References  . . . . . . . . . . . . . . . . . . . .   8
-   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   9
-   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
-   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   1.  Introduction
+     1.1.  Notational Conventions
+   2.  Media Type registrations
+     2.1.  Media Type application/yaml
+     2.2.  The OpenAPI Media Types
+       2.2.1.  Media Type application/openapi+json
+       2.2.2.  Media Type application/openapi+yaml
+   3.  Security Considerations
+   4.  IANA Considerations
+   5.  Normative References
+   Appendix A.  Acknowledgements
+   FAQ
+   Change Log
+   Author's Address
 
 1.  Introduction
 
@@ -101,18 +89,6 @@ Table of Contents
    Specification resources this specification register the following
    media-types: application/yaml, application/openapi+json and
    application/openapi+yaml.
-
-   Moreover it defines and registers the +yaml structured syntax suffix.
-
-
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 2]
-
-Internet-Draft            REST API Media Types              January 2022
-
 
 1.1.  Notational Conventions
 
@@ -130,7 +106,7 @@ Internet-Draft            REST API Media Types              January 2022
 2.  Media Type registrations
 
    This section describes the information required to register the above
-   media types according to [MEDIATYPE]
+   media types.
 
 2.1.  Media Type application/yaml
 
@@ -163,13 +139,6 @@ Internet-Draft            REST API Media Types              January 2022
    Deprecated alias names for this type: application/x-yaml, text/yaml,
    text/x-yaml
 
-
-
-Polli                     Expires 30 July 2022                  [Page 3]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
    Magic number(s): n/a
 
    File extension(s): yaml, yml
@@ -187,72 +156,7 @@ Internet-Draft            REST API Media Types              January 2022
 
    Change controller: n/a
 
-2.2.  The +yaml Structured Syntax Suffix
-
-   The suffix +yaml MAY be used with any media type whose representation
-   follows that established for application/yaml.  The media type
-   structured syntax suffix registration form follows.  See [MEDIATYPE]
-   for definitions of each of the registration form headings.
-
-   Name: YAML Ain't Markup LanguageML (YAML)
-
-   +suffix: +yaml
-
-   References: [yaml]
-
-   Encoding considerations: see Section 2.1
-
-   Fragment identifier considerations:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 4]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
-     The syntax and semantics of fragment identifiers specified for
-     +yaml SHOULD be as specified for {{application-yaml}}
-
-     The syntax and semantics for fragment identifiers for a specific
-     `xxx/yyy+json` SHOULD be processed as follows:
-
-     For cases defined in +yaml, where the fragment identifier resolves
-     per the +yaml rules, then process as specified in +yaml.
-
-        For cases defined in +yaml, where the fragment identifier does
-        not resolve per the +yaml rules, then process as specified in
-        `xxx/yyy+yaml`.
-
-        For cases not defined in +yaml, then process as specified in
-        `xxx/yyy+yaml`.
-
-   Interoperability considerations: n/a
-
-   Security considerations: See Section 2.1
-
-   Contact: See Authors' Addresses section.
-
-   Author: See Authors' Addresses section
-
-   Change controller: n/a
-
-2.3.  The OpenAPI Media Types
+2.2.  The OpenAPI Media Types
 
    The OpenAPI Specification Media Types convey OpenAPI document (OAS)
    files as defined in [oas] for version 3.0.0 and above.
@@ -274,15 +178,7 @@ Internet-Draft            REST API Media Types              January 2022
            application/openapi+yaml;version=3.0;q=0.5,
            application/openapi+json;q=0.3
 
-
-
-
-Polli                     Expires 30 July 2022                  [Page 5]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
-2.3.1.  Media Type application/openapi+json
+2.2.1.  Media Type application/openapi+json
 
    The following information serves as the registration form for the
    application/openapi+json media type.
@@ -330,15 +226,7 @@ Internet-Draft            REST API Media Types              January 2022
 
    Change controller: n/a
 
-
-
-
-Polli                     Expires 30 July 2022                  [Page 6]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
-2.3.2.  Media Type application/openapi+yaml
+2.2.2.  Media Type application/openapi+yaml
 
    The following information serves as the registration form for the
    application/openapi+yaml media type.
@@ -386,14 +274,6 @@ Internet-Draft            REST API Media Types              January 2022
 
    Change controller: n/a
 
-
-
-
-Polli                     Expires 30 July 2022                  [Page 7]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
 3.  Security Considerations
 
    Security requirements for both media type and media type suffix
@@ -414,47 +294,25 @@ Internet-Draft            REST API Media Types              January 2022
           +==========================+==========================+
           | application/yaml         | Section 2.1 of ThisRFC   |
           +--------------------------+--------------------------+
-          | application/openapi+yaml | Section 2.3.2 of ThisRFC |
+          | application/openapi+yaml | Section 2.2.2 of ThisRFC |
           +--------------------------+--------------------------+
-          | application/openapi+json | Section 2.3.1 of ThisRFC |
+          | application/openapi+json | Section 2.2.1 of ThisRFC |
           +--------------------------+--------------------------+
 
                                   Table 1
-
-   IANA has updated the "Structured Syntax Suffixes" registry at
-   https://www.iana.org/assignments/media-type-structured-suffix
-   (https://www.iana.org/assignments/media-type-structured-suffix) with
-   the registration information provided below.
-
-                    +========+========================+
-                    | Suffix | Section                |
-                    +========+========================+
-                    | +yaml  | Section 2.2 of ThisRFC |
-                    +--------+------------------------+
-
-                                  Table 2
 
 5.  Normative References
 
    [JSON]     Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
-              <https://www.rfc-editor.org/info/rfc8259>.
-
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 8]
-
-Internet-Draft            REST API Media Types              January 2022
-
+              <https://www.rfc-editor.org/rfc/rfc8259>.
 
    [MEDIATYPE]
               Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
-              <https://www.rfc-editor.org/info/rfc6838>.
+              <https://www.rfc-editor.org/rfc/rfc6838>.
 
    [oas]      Darrel Miller, ., Jeremy Whitlock, ., Marsh Gardiner, .,
               Mike Ralphson, ., Ron Ratovsky, ., and . Uri Sarid,
@@ -463,20 +321,20 @@ Internet-Draft            REST API Media Types              January 2022
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              <https://www.rfc-editor.org/rfc/rfc2119>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
-              <https://www.rfc-editor.org/info/rfc5234>.
+              <https://www.rfc-editor.org/rfc/rfc5234>.
 
    [RFC7405]  Kyzivat, P., "Case-Sensitive String Support in ABNF",
               RFC 7405, DOI 10.17487/RFC7405, December 2014,
-              <https://www.rfc-editor.org/info/rfc7405>.
+              <https://www.rfc-editor.org/rfc/rfc7405>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
    [yaml]     Oren Ben-Kiki, ., Clark Evans, ., and . Ingy doet Net,
               "YAML Ain’t Markup Language Version 1.2", 1 October 2002,
@@ -498,14 +356,6 @@ FAQ
       media-type for yaml.  This has some security implications too (eg.
       wrt on identifying parsers or treat downloads)
 
-
-
-
-Polli                     Expires 30 July 2022                  [Page 9]
-
-Internet-Draft            REST API Media Types              January 2022
-
-
 Change Log
 
    RFC EDITOR PLEASE DELETE THIS SECTION.
@@ -517,44 +367,3 @@ Author's Address
    Italy
 
    Email: robipolli@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Polli                     Expires 30 July 2022                 [Page 10]

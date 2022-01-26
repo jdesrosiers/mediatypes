@@ -37,16 +37,184 @@ and application/openapi+yaml.
 -->
 <link href="draft-ietf-httpapi-rest-api-mediatypes.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
-<style type="text/css">@import url('https://martinthomson.github.io/i-d-template/fonts.css');
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
-html {
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cabin Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
   --background-color: #fff;
   --text-color: #222;
   --title-color: #191919;
   --link-color: #2a6496;
   --highlight-color: #f9f9f9;
   --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  scrollbar-color: #bbb #eee;
 }
 body {
   max-width: 600px;
@@ -63,36 +231,47 @@ body {
 }
 
 /* headings */
-#title, h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Cabin Condensed", sans-serif;
   font-weight: 600;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-#title {
-  padding: 1em 0 0.2em;
+h1#title {
   font-size: 32px;
   line-height: 40px;
   clear: both;
 }
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
 h1, h2, h3 {
   font-size: 22px;
-  line-height: 26px;
+  line-height: 27px;
 }
 h4, h5, h6 {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 /* general structure */
 .author {
   padding-bottom: 0.3em;
 }
-#abstract+p, #abstract+p code, #abstract+p samp, #abstract+p tt {
+#abstract+p {
   font-size: 18px;
   line-height: 24px;
 }
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
 p {
   padding: 0;
   margin: 0.5em 0;
@@ -129,6 +308,10 @@ div {
 svg {
   display: block;
 }
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
 .alignCenter.art-text {
   background-color: var(--highlight-color);
   border: 1px solid var(--line-color);
@@ -155,7 +338,7 @@ svg {
 /* lists */
 ol, ul {
   padding: 0;
-  margin: 0 0 1em 2em;
+  margin: 0 0 0.5em 2em;
 }
 ol ol, ul ul, ol ul, ul ol {
   margin-left: 1em;
@@ -223,7 +406,13 @@ a.xref {
 /* Figures */
 tt, code, pre {
   background-color: var(--highlight-color);
-  font: 14px/22px 'Oxygen Mono', monospace;
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines */
+  line-height: 0;
 }
 pre {
   border: 1px solid var(--line-color);
@@ -238,6 +427,7 @@ img {
 }
 figure {
   margin: 0.5em 0;
+  padding: 0;
 }
 figure blockquote {
   margin: 0.8em 0.4em 0.4em;
@@ -248,24 +438,25 @@ figcaption, caption {
   text-align: left;
 }
 @media screen {
-  pre {
+  pre, svg {
     display: inline-block;
     overflow-x: auto;
+  }
+  pre {
     max-width: 100%;
     width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
   }
   figure pre {
     display: block;
     width: calc(100% - 25px);
   }
-  pre + .pilcrow {
+  pre + .pilcrow, svg + .pilcrow {
     display: inline-block;
     vertical-align: text-bottom;
     padding-bottom: 8px;
-  }
-  table {
-    display: inline-block;
-    overflow-x: auto;
   }
 }
 
@@ -276,9 +467,6 @@ aside, blockquote {
   font-style: italic;
 }
 blockquote {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
   margin: 1em 0;
 }
 cite {
@@ -328,7 +516,7 @@ thead+tbody > tr:nth-child(2n+1) > td {
 }
 table caption {
   margin: 0;
-  padding: 3px 1em;
+  padding: 3px 0 3px 1em;
 }
 table p {
   margin: 0;
@@ -337,17 +525,23 @@ table p {
 /* pilcrow */
 a.pilcrow {
   margin-left: 3px;
-  visibility: hidden;
+  opacity: 0.2;
   user-select: none;
 }
-a.pilcrow[href] { color: #ddd; }
+a.pilcrow[href] { color: var(--pilcrow-weak); }
 a.pilcrow[href]:hover { text-decoration: none; }
-@media screen {
+@media not print {
   :hover > a.pilcrow {
-    visibility: visible;
+    opacity: 1;
   }
-  a.pilcrow:hover {
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
     background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
   }
 }
 
@@ -443,36 +637,8 @@ hr {
 }
 
 /* index */
-.index ul {
-  margin: 0 0 0 1em;
-  padding: 0;
-  list-style: none;
-}
-.index ul ul {
-  margin: 0;
-}
-.index li {
-  margin: 0;
-  text-indent: -2em;
-  padding-left: 2em;
-  padding-bottom: 5px;
-}
-.indexIndex {
-  margin: 0.5em 0 1em;
-}
-.index a {
-  font-weight: 700;
-}
-/* make the index two-column on all but the smallest screens */
-@media (min-width: 500px) {
-  .index ul {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  .index ul ul {
-    column-count: 1;
-    column-gap: 0;
-  }
+#rfc\.index\.index + ul {
+  margin-left: 0;
 }
 
 /* authors */
@@ -815,8 +981,36 @@ address div.right {
   font-weight: bold;
   font-size: 0.9em;
 }
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+/* Trick: a prefix match works because only black and white are allowed */
+svg [stroke="black"], svg [stroke^="#000"] {
+  stroke: var(--text-color);
+}
+svg [stroke="white"], svg [stroke^="#fff"] {
+  stroke: var(--background-color);
+}
+svg [fill="black"], svg [fill^="#000"], svg :not([fill]) {
+  fill: var(--text-color);
+}
+svg [stroke="fill"], svg [fill^="#fff"] {
+  fill: var(--background-color);
+}
+}
 </style>
-<link href="rfc-local.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <table class="ears">
@@ -939,16 +1133,13 @@ mailing list (httpapi@ietf.org), which is archived at
                 <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-media-type-application-yaml" class="xref">Media Type application/yaml</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-the-yaml-structured-syntax-" class="xref">The +yaml Structured Syntax Suffix</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-the-openapi-media-types" class="xref">The OpenAPI Media Types</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-the-openapi-media-types" class="xref">The OpenAPI Media Types</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.1">
-                    <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="xref">2.3.1</a>.  <a href="#name-media-type-application-open" class="xref">Media Type application/openapi+json</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.1">
+                    <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="xref">2.2.1</a>.  <a href="#name-media-type-application-open" class="xref">Media Type application/openapi+json</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
-                    <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="xref">2.3.2</a>.  <a href="#name-media-type-application-opena" class="xref">Media Type application/openapi+yaml</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.2">
+                    <p id="section-toc.1-1.2.2.2.2.2.1"><a href="#section-2.2.2" class="xref">2.2.2</a>.  <a href="#name-media-type-application-opena" class="xref">Media Type application/openapi+yaml</a></p>
 </li>
                 </ul>
 </li>
@@ -994,8 +1185,6 @@ this specification register the following media-types:
 <code>application/yaml</code>,
 <code>application/openapi+json</code>
 and <code>application/openapi+yaml</code>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Moreover it defines and registers
-the <code>+yaml</code> structured syntax suffix.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <div id="notational-conventions">
 <section id="section-1.1">
         <h3 id="name-notational-conventions">
@@ -1020,7 +1209,7 @@ by <span>[<a href="#RFC7405" class="xref">RFC7405</a>]</span>.<a href="#section-
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-media-type-registrations" class="section-name selfRef">Media Type registrations</a>
       </h2>
 <p id="section-2-1">This section describes the information required to register
-the above media types according to <span>[<a href="#MEDIATYPE" class="xref">MEDIATYPE</a>]</span><a href="#section-2-1" class="pilcrow">¶</a></p>
+the above media types.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <div id="application-yaml">
 <section id="section-2.1">
         <h3 id="name-media-type-application-yaml">
@@ -1051,133 +1240,92 @@ the above media types according to <span>[<a href="#MEDIATYPE" class="xref">MEDI
 <p id="section-2.1-21">Change controller:  n/a<a href="#section-2.1-21" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="suffix-yaml">
-<section id="section-2.2">
-        <h3 id="name-the-yaml-structured-syntax-">
-<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-the-yaml-structured-syntax-" class="section-name selfRef">The +yaml Structured Syntax Suffix</a>
-        </h3>
-<p id="section-2.2-1">The suffix
-<code>+yaml</code> MAY be used with any media type whose representation follows
-that established for <code>application/yaml</code>.
-The media type structured syntax suffix registration form follows.
-See <span>[<a href="#MEDIATYPE" class="xref">MEDIATYPE</a>]</span> for definitions of each of the registration form headings.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2-2">Name:  YAML Ain't Markup LanguageML (YAML)<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.2-3">+suffix:  +yaml<a href="#section-2.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.2-4">References:  <span>[<a href="#yaml" class="xref">yaml</a>]</span><a href="#section-2.2-4" class="pilcrow">¶</a></p>
-<p id="section-2.2-5">Encoding considerations: see <a href="#application-yaml" class="xref">Section 2.1</a><a href="#section-2.2-5" class="pilcrow">¶</a></p>
-<p id="section-2.2-6">Fragment identifier considerations:<a href="#section-2.2-6" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-2.2-7">
-<pre>
-  The syntax and semantics of fragment identifiers specified for
-  +yaml SHOULD be as specified for {{application-yaml}}
-
-  The syntax and semantics for fragment identifiers for a specific
-  `xxx/yyy+json` SHOULD be processed as follows:
-
-  For cases defined in +yaml, where the fragment identifier resolves
-  per the +yaml rules, then process as specified in +yaml.
-
-     For cases defined in +yaml, where the fragment identifier does
-     not resolve per the +yaml rules, then process as specified in
-     `xxx/yyy+yaml`.
-
-     For cases not defined in +yaml, then process as specified in
-     `xxx/yyy+yaml`.
-</pre><a href="#section-2.2-7" class="pilcrow">¶</a>
-</div>
-<p id="section-2.2-8">Interoperability considerations:  n/a<a href="#section-2.2-8" class="pilcrow">¶</a></p>
-<p id="section-2.2-9">Security considerations:  See <a href="#application-yaml" class="xref">Section 2.1</a><a href="#section-2.2-9" class="pilcrow">¶</a></p>
-<p id="section-2.2-10">Contact:  See Authors' Addresses section.<a href="#section-2.2-10" class="pilcrow">¶</a></p>
-<p id="section-2.2-11">Author:  See Authors' Addresses section<a href="#section-2.2-11" class="pilcrow">¶</a></p>
-<p id="section-2.2-12">Change controller:  n/a<a href="#section-2.2-12" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="the-openapi-media-types">
-<section id="section-2.3">
+<section id="section-2.2">
         <h3 id="name-the-openapi-media-types">
-<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-the-openapi-media-types" class="section-name selfRef">The OpenAPI Media Types</a>
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-the-openapi-media-types" class="section-name selfRef">The OpenAPI Media Types</a>
         </h3>
-<p id="section-2.3-1">The OpenAPI Specification Media Types convey OpenAPI document (OAS) files
-as defined in <span>[<a href="#oas" class="xref">oas</a>]</span> for version 3.0.0 and above.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.3-2">Those files can be serialized in <span>[<a href="#JSON" class="xref">JSON</a>]</span> or <span>[<a href="#yaml" class="xref">yaml</a>]</span>.
+<p id="section-2.2-1">The OpenAPI Specification Media Types convey OpenAPI document (OAS) files
+as defined in <span>[<a href="#oas" class="xref">oas</a>]</span> for version 3.0.0 and above.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">Those files can be serialized in <span>[<a href="#JSON" class="xref">JSON</a>]</span> or <span>[<a href="#yaml" class="xref">yaml</a>]</span>.
 Since there are multiple OpenAPI Specification versions,
-those media-types support the <code>version</code> parameter.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
-<p id="section-2.3-3">The following examples conveys the desire of a client
+those media-types support the <code>version</code> parameter.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2-3">The following examples conveys the desire of a client
 to receive an OpenAPI Specification resource preferably in the following
-order:<a href="#section-2.3-3" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-2.3-4">
-<li id="section-2.3-4.1">openapi 3.1 in yaml<a href="#section-2.3-4.1" class="pilcrow">¶</a>
+order:<a href="#section-2.2-3" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-2.2-4">
+<li id="section-2.2-4.1">openapi 3.1 in yaml<a href="#section-2.2-4.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-2.3-4.2">openapi 3.0 in yaml<a href="#section-2.3-4.2" class="pilcrow">¶</a>
+          <li id="section-2.2-4.2">openapi 3.0 in yaml<a href="#section-2.2-4.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-2.3-4.3">any openapi version in json<a href="#section-2.3-4.3" class="pilcrow">¶</a>
+          <li id="section-2.2-4.3">any openapi version in json<a href="#section-2.2-4.3" class="pilcrow">¶</a>
 </li>
         </ol>
-<div id="section-2.3-5">
+<div id="section-2.2-5">
 <pre class="lang-example sourcecode">
 Accept: application/openapi+yaml;version=3.1,
         application/openapi+yaml;version=3.0;q=0.5,
         application/openapi+json;q=0.3
-</pre><a href="#section-2.3-5" class="pilcrow">¶</a>
+</pre><a href="#section-2.2-5" class="pilcrow">¶</a>
 </div>
 <div id="openapi-json">
-<section id="section-2.3.1">
+<section id="section-2.2.1">
           <h4 id="name-media-type-application-open">
-<a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-media-type-application-open" class="section-name selfRef">Media Type application/openapi+json</a>
+<a href="#section-2.2.1" class="section-number selfRef">2.2.1. </a><a href="#name-media-type-application-open" class="section-name selfRef">Media Type application/openapi+json</a>
           </h4>
-<p id="section-2.3.1-1">The following information serves as the registration form for the <code>application/openapi+json</code> media type.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-2">Type name:  application<a href="#section-2.3.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-3">Subtype name:  openapi+json<a href="#section-2.3.1-3" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-4">Required parameters:  None<a href="#section-2.3.1-4" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-5">Optional parameters:  version; unrecognized parameters should be ignored<a href="#section-2.3.1-5" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-6">Encoding considerations:  Same as <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.3.1-6" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-7">Security considerations:  see <a href="#security-considerations" class="xref">Section 3</a> of this document<a href="#section-2.3.1-7" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-8">Interoperability considerations:  None<a href="#section-2.3.1-8" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-9">Published specification: (this document)<a href="#section-2.3.1-9" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-10">Applications that use this media type:  HTTP<a href="#section-2.3.1-10" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-11">Fragment identifier considerations:  Same as for application/json
-  <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.3.1-11" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-12">Additional information:<a href="#section-2.3.1-12" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-13">Deprecated alias names for this type:  n/a<a href="#section-2.3.1-13" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-14">Magic number(s):  n/a<a href="#section-2.3.1-14" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-15">File extension(s):  json<a href="#section-2.3.1-15" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-16">Macintosh file type code(s):  n/a<a href="#section-2.3.1-16" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-17">Person and email address to contact for further information:
-  See Authors' Addresses section.<a href="#section-2.3.1-17" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-18">Intended usage:  COMMON<a href="#section-2.3.1-18" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-19">Restrictions on usage:  None.<a href="#section-2.3.1-19" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-20">Author:  See Authors' Addresses section.<a href="#section-2.3.1-20" class="pilcrow">¶</a></p>
-<p id="section-2.3.1-21">Change controller:  n/a<a href="#section-2.3.1-21" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-1">The following information serves as the registration form for the <code>application/openapi+json</code> media type.<a href="#section-2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-2">Type name:  application<a href="#section-2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-3">Subtype name:  openapi+json<a href="#section-2.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-4">Required parameters:  None<a href="#section-2.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-5">Optional parameters:  version; unrecognized parameters should be ignored<a href="#section-2.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-6">Encoding considerations:  Same as <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.2.1-6" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-7">Security considerations:  see <a href="#security-considerations" class="xref">Section 3</a> of this document<a href="#section-2.2.1-7" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-8">Interoperability considerations:  None<a href="#section-2.2.1-8" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-9">Published specification: (this document)<a href="#section-2.2.1-9" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-10">Applications that use this media type:  HTTP<a href="#section-2.2.1-10" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-11">Fragment identifier considerations:  Same as for application/json
+  <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.2.1-11" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-12">Additional information:<a href="#section-2.2.1-12" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-13">Deprecated alias names for this type:  n/a<a href="#section-2.2.1-13" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-14">Magic number(s):  n/a<a href="#section-2.2.1-14" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-15">File extension(s):  json<a href="#section-2.2.1-15" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-16">Macintosh file type code(s):  n/a<a href="#section-2.2.1-16" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-17">Person and email address to contact for further information:
+  See Authors' Addresses section.<a href="#section-2.2.1-17" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-18">Intended usage:  COMMON<a href="#section-2.2.1-18" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-19">Restrictions on usage:  None.<a href="#section-2.2.1-19" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-20">Author:  See Authors' Addresses section.<a href="#section-2.2.1-20" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-21">Change controller:  n/a<a href="#section-2.2.1-21" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="openapi-yaml">
-<section id="section-2.3.2">
+<section id="section-2.2.2">
           <h4 id="name-media-type-application-opena">
-<a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-media-type-application-opena" class="section-name selfRef">Media Type application/openapi+yaml</a>
+<a href="#section-2.2.2" class="section-number selfRef">2.2.2. </a><a href="#name-media-type-application-opena" class="section-name selfRef">Media Type application/openapi+yaml</a>
           </h4>
-<p id="section-2.3.2-1">The following information serves as the registration form for the <code>application/openapi+yaml</code> media type.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-2">Type name:  application<a href="#section-2.3.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-3">Subtype name:  openapi+yaml<a href="#section-2.3.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-4">Required parameters:  None<a href="#section-2.3.2-4" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-5">Optional parameters:  version; unrecognized parameters should be ignored<a href="#section-2.3.2-5" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-6">Encoding considerations:  Same as <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.3.2-6" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-7">Security considerations:  see <a href="#security-considerations" class="xref">Section 3</a> of this document<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-8">Interoperability considerations:  None<a href="#section-2.3.2-8" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-9">Published specification: (this document)<a href="#section-2.3.2-9" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-10">Applications that use this media type:  HTTP<a href="#section-2.3.2-10" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-11">Fragment identifier considerations:  Same as for application/json
-  <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.3.2-11" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-12">Additional information:<a href="#section-2.3.2-12" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-13">Deprecated alias names for this type:  n/a<a href="#section-2.3.2-13" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-14">Magic number(s):  n/a<a href="#section-2.3.2-14" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-15">File extension(s):  yaml, yml<a href="#section-2.3.2-15" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-16">Macintosh file type code(s):  n/a<a href="#section-2.3.2-16" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-17">Person and email address to contact for further information:
-  See Authors' Addresses section<a href="#section-2.3.2-17" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-18">Intended usage:  COMMON<a href="#section-2.3.2-18" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-19">Restrictions on usage:  None.<a href="#section-2.3.2-19" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-20">Author:  See Authors' Addresses section<a href="#section-2.3.2-20" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-21">Change controller:  n/a<a href="#section-2.3.2-21" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-1">The following information serves as the registration form for the <code>application/openapi+yaml</code> media type.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-2">Type name:  application<a href="#section-2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-3">Subtype name:  openapi+yaml<a href="#section-2.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-4">Required parameters:  None<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-5">Optional parameters:  version; unrecognized parameters should be ignored<a href="#section-2.2.2-5" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-6">Encoding considerations:  Same as <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.2.2-6" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-7">Security considerations:  see <a href="#security-considerations" class="xref">Section 3</a> of this document<a href="#section-2.2.2-7" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-8">Interoperability considerations:  None<a href="#section-2.2.2-8" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-9">Published specification: (this document)<a href="#section-2.2.2-9" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-10">Applications that use this media type:  HTTP<a href="#section-2.2.2-10" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-11">Fragment identifier considerations:  Same as for application/json
+  <span>[<a href="#JSON" class="xref">JSON</a>]</span><a href="#section-2.2.2-11" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-12">Additional information:<a href="#section-2.2.2-12" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-13">Deprecated alias names for this type:  n/a<a href="#section-2.2.2-13" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-14">Magic number(s):  n/a<a href="#section-2.2.2-14" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-15">File extension(s):  yaml, yml<a href="#section-2.2.2-15" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-16">Macintosh file type code(s):  n/a<a href="#section-2.2.2-16" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-17">Person and email address to contact for further information:
+  See Authors' Addresses section<a href="#section-2.2.2-17" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-18">Intended usage:  COMMON<a href="#section-2.2.2-18" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-19">Restrictions on usage:  None.<a href="#section-2.2.2-19" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-20">Author:  See Authors' Addresses section<a href="#section-2.2.2-20" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-21">Change controller:  n/a<a href="#section-2.2.2-21" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1218,30 +1366,12 @@ with the registration information provided below.<a href="#section-4-2" class="p
           <tr>
             <td class="text-left" rowspan="1" colspan="1">application/openapi+yaml</td>
             <td class="text-left" rowspan="1" colspan="1">
-              <a href="#openapi-yaml" class="xref">Section 2.3.2</a> of ThisRFC</td>
+              <a href="#openapi-yaml" class="xref">Section 2.2.2</a> of ThisRFC</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">application/openapi+json</td>
             <td class="text-left" rowspan="1" colspan="1">
-              <a href="#openapi-json" class="xref">Section 2.3.1</a> of ThisRFC</td>
-          </tr>
-        </tbody>
-      </table>
-<p id="section-4-4">IANA has updated the "Structured Syntax Suffixes" registry at <a href="https://www.iana.org/assignments/media-type-structured-suffix">https://www.iana.org/assignments/media-type-structured-suffix</a>
-with the registration information provided below.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<table class="center" id="table-2">
-        <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
-<thead>
-          <tr>
-            <th class="text-left" rowspan="1" colspan="1">Suffix</th>
-            <th class="text-left" rowspan="1" colspan="1">Section</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">+yaml</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <a href="#suffix-yaml" class="xref">Section 2.2</a> of ThisRFC</td>
+              <a href="#openapi-json" class="xref">Section 2.2.1</a> of ThisRFC</td>
           </tr>
         </tbody>
       </table>
@@ -1254,11 +1384,11 @@ with the registration information provided below.<a href="#section-4-4" class="p
 <dl class="references">
 <dt id="JSON">[JSON]</dt>
       <dd>
-<span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8259">https://www.rfc-editor.org/info/rfc8259</a>&gt;</span>. </dd>
+<span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="MEDIATYPE">[MEDIATYPE]</dt>
       <dd>
-<span class="refAuthor">Freed, N.</span>, <span class="refAuthor">Klensin, J.</span>, and <span class="refAuthor">T. Hansen</span>, <span class="refTitle">"Media Type Specifications and Registration Procedures"</span>, <span class="seriesInfo">BCP 13</span>, <span class="seriesInfo">RFC 6838</span>, <span class="seriesInfo">DOI 10.17487/RFC6838</span>, <time datetime="2013-01" class="refDate">January 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6838">https://www.rfc-editor.org/info/rfc6838</a>&gt;</span>. </dd>
+<span class="refAuthor">Freed, N.</span>, <span class="refAuthor">Klensin, J.</span>, and <span class="refAuthor">T. Hansen</span>, <span class="refTitle">"Media Type Specifications and Registration Procedures"</span>, <span class="seriesInfo">BCP 13</span>, <span class="seriesInfo">RFC 6838</span>, <span class="seriesInfo">DOI 10.17487/RFC6838</span>, <time datetime="2013-01" class="refDate">January 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6838">https://www.rfc-editor.org/rfc/rfc6838</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="oas">[oas]</dt>
       <dd>
@@ -1266,19 +1396,19 @@ with the registration information provided below.<a href="#section-4-4" class="p
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5234">[RFC5234]</dt>
       <dd>
-<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5234">https://www.rfc-editor.org/info/rfc5234</a>&gt;</span>. </dd>
+<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7405">[RFC7405]</dt>
       <dd>
-<span class="refAuthor">Kyzivat, P.</span>, <span class="refTitle">"Case-Sensitive String Support in ABNF"</span>, <span class="seriesInfo">RFC 7405</span>, <span class="seriesInfo">DOI 10.17487/RFC7405</span>, <time datetime="2014-12" class="refDate">December 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7405">https://www.rfc-editor.org/info/rfc7405</a>&gt;</span>. </dd>
+<span class="refAuthor">Kyzivat, P.</span>, <span class="refTitle">"Case-Sensitive String Support in ABNF"</span>, <span class="seriesInfo">RFC 7405</span>, <span class="seriesInfo">DOI 10.17487/RFC7405</span>, <time datetime="2014-12" class="refDate">December 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7405">https://www.rfc-editor.org/rfc/rfc7405</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
       <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="yaml">[yaml]</dt>
     <dd>
