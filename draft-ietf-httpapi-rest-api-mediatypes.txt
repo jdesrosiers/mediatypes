@@ -82,12 +82,16 @@ Table of Contents
        2.2.1.  Media Type application/openapi+json . . . . . . . . .   4
        2.2.2.  Media Type application/openapi+yaml . . . . . . . . .   5
    3.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   5.  Normative References  . . . . . . . . . . . . . . . . . . . .   7
-   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   8
-   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   8
+     3.1.  YAML media types  . . . . . . . . . . . . . . . . . . . .   6
+       3.1.1.  YAML and JSON . . . . . . . . . . . . . . . . . . . .   7
+       3.1.2.  Arbitrary code execution  . . . . . . . . . . . . . .   7
+       3.1.3.  Resource exhaustion . . . . . . . . . . . . . . . . .   7
+   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   5.  Normative References  . . . . . . . . . . . . . . . . . . . .   8
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   9
+   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
 
@@ -100,10 +104,6 @@ Table of Contents
    Specification resources this specification register the following
    media-types: application/yaml, application/openapi+json and
    application/openapi+yaml.
-
-
-
-
 
 
 
@@ -326,10 +326,10 @@ Internet-Draft            REST API Media Types              January 2022
    Security requirements for both media type and media type suffix
    registrations are discussed in Section 4.6 of [MEDIATYPE].
 
-4.  IANA Considerations
+3.1.  YAML media types
 
-   This specification defines the following new Internet media types
-   [MEDIATYPE].
+
+
 
 
 
@@ -337,6 +337,71 @@ Polli                     Expires 30 July 2022                  [Page 6]
 
 Internet-Draft            REST API Media Types              January 2022
 
+
+3.1.1.  YAML and JSON
+
+   Since YAML [yaml] is a superset of JSON [JSON], the same security
+   considerations apply when using that syntax.  It is important to note
+   though, that when serializing a YAML document in JSON, information
+   can be discarded: this includes comments and references that do not
+   have a JSON counterpart.
+
+   Implementers interested in using YAML as a more efficient format to
+   serialize information intented to be consumed in JSON, needs to
+   ensure that relevant information will not be lost during the
+   processing, and might want to use a restricted YAML profile.
+
+3.1.2.  Arbitrary code execution
+
+   YAML has some features like explicit typing (e.g. !!str) and local
+   tags that, depending on the implementation, might trigger unexpected
+   code execution.
+
+   document = "!!python/object/apply:os.system ['echo boom!']"
+   yaml.unsafe_load(document)
+   # boom!
+
+   Code execution in deserializers should be disabled by default, and
+   only be enabled explicitly.  In those cases, the implementation
+   should ensure - for example, via specific functions - that code
+   execution would result to strictly bounded time/memory limits.
+
+   Many implementations provide safe deserializers addressing these
+   issues (e.g the yaml.safe_load function in pyyaml, ...).
+
+3.1.3.  Resource exhaustion
+
+   YAML documents may contain reference cycles, so they can't be treated
+   as tree structures.  An implementation that attempts to treat a
+   cyclic document as a tree structure may infinite-loop at some point
+   (e.g. when trying to serialize a YAML document in JSON).
+
+   Even if a document is not cyclic, treating it as a tree may lead to
+   improper behavior (such as the "billion laughs" problem).
+
+   x:  &a1 ["a", "a"]
+   x2: &a2 [*a1, *a1]
+   x3: &a3 [*a2, *a2]
+
+   This can be addressed using processors limiting the anchor recursion
+   depth and validating the input before processing it; even in these
+   cases it is important to carefully test the implementation you are
+
+
+
+Polli                     Expires 30 July 2022                  [Page 7]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
+   going to use.  The same considerations apply when serializing a YAML
+   object in a format that do not support reference cycles (see
+   Section 3.1.1).
+
+4.  IANA Considerations
+
+   This specification defines the following new Internet media types
+   [MEDIATYPE].
 
    IANA has updated the "Media Types" registry at
    https://www.iana.org/assignments/media-types
@@ -377,6 +442,14 @@ Internet-Draft            REST API Media Types              January 2022
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+Polli                     Expires 30 July 2022                  [Page 8]
+
+Internet-Draft            REST API Media Types              January 2022
+
+
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
@@ -385,14 +458,6 @@ Internet-Draft            REST API Media Types              January 2022
    [RFC7405]  Kyzivat, P., "Case-Sensitive String Support in ABNF",
               RFC 7405, DOI 10.17487/RFC7405, December 2014,
               <https://www.rfc-editor.org/info/rfc7405>.
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 7]
-
-Internet-Draft            REST API Media Types              January 2022
-
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -436,13 +501,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-Polli                     Expires 30 July 2022                  [Page 8]
+Polli                     Expires 30 July 2022                  [Page 9]
