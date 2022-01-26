@@ -377,7 +377,7 @@ Table of Contents
 
    Magic number(s): n/a
 
-   File extension(s): json, schema.json
+   File extension(s): json
 
    Macintosh file type code(s): n/a
 
