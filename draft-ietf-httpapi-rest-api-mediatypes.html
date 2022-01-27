@@ -1180,6 +1180,22 @@ that do not have a JSON counterpart.<a href="#section-3.1.1-1" class="pilcrow">�
 to serialize information intented to be consumed in JSON,
 needs to ensure that relevant information will not be lost during
 the processing, and might want to use a restricted YAML profile.<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-3">YAML features not interperable with JSON
+includes:<a href="#section-3.1.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.1.1-4.1">circular references;<a href="#section-3.1.1-4.1" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-3.1.1-4.2">
+              <code>.inf</code> and <code>.nan</code> float values, despite the fact they are enumerated in the YAML "JSON schema" profile;<a href="#section-3.1.1-4.2" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-3.1.1-4.3">local tags;<a href="#section-3.1.1-4.3" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-3.1.1-4.4">
+              <code>timestamp</code> type;<a href="#section-3.1.1-4.4" class="pilcrow">¶</a>
+</li>
+            <li class="normal" id="section-3.1.1-4.5">mapping between sequences and mappings.<a href="#section-3.1.1-4.5" class="pilcrow">¶</a>
+</li>
+          </ul>
 </section>
 </div>
 <div id="arbitrary-code-execution">
