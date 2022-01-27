@@ -252,6 +252,52 @@ Author:  See Authors' Addresses section
 
 Change controller:  n/a
 
+# Interoperability Considerations
+
+## YAML and JSON {#sec-yaml-and-json}
+
+Since YAML [yaml] is a superset of JSON [JSON],
+the same interoperability considerations apply when using that syntax.
+It is important to note though, that when serializing a YAML document
+in JSON, information can be discarded: this includes comments and references
+that do not have a JSON counterpart.
+
+When using YAML as a more efficient format
+to serialize information to be consumed in JSON,
+implementers need to ensure that relevant information will not be lost during
+the processing, and might want to use a restricted YAML schema
+such as the "YAML Failsafe schema" (see Section 10.1 of [yaml])
+or limit to the admitted tags.
+As an example, one could decide to only support the following ones:
+
+- `!!str`, `!!int`, `!!map`, `!!seq`;
+- `!!float` without the `.inf` and `.nan` values;
+- `!!merge`
+
+YAML features that may have interoperability
+issues with JSON include:
+
+- non UTF-8 encoding, since YAML supports UTF-16 and UTF-32 in addition to UTF-8;
+- `.inf` and `.nan` float values,
+  despite the fact they are enumerated in the "YAML JSON schema"
+  (see Section 10.2.1.4 of [yaml]);
+- non-JSON types, including  the following tags:
+  `!!timestamp`, `!!set`, `!!omap` and `!!pairs`;
+- local tags such as `!!python/object` and
+  `!mytag` (see Section 2.4 of [yaml]);
+- mapping keys that are non-scalar or of non-JSON types (see Section 2.2 of [yaml]);
+
+~~~ example
+non-json-keys:
+  2020-01-01: a timestamp
+  [0, 1]: a sequence
+  ? {k: v}
+  : a map
+~~~
+{: title="Example of mapping keys not supported in JSON" #example-unsupported-keys}
+
+- circular references represented using anchor (see {{sec-exhaustion}}
+  and {{example-yaml-cyclic}}).
 
 # Security Considerations
 
@@ -260,22 +306,9 @@ registrations are discussed in Section 4.6 of {{!MEDIATYPE=RFC6838}}.
 
 ## YAML media types
 
-### YAML and JSON {#sec-yaml-and-json}
+### Arbitrary code execution {#sec-code-execution}
 
-Since YAML [yaml] is a superset of JSON [JSON],
-the same security considerations apply when using that syntax.
-It is important to note though, that when serializing a YAML document
-in JSON, information can be discarded: this includes comments and references
-that do not have a JSON counterpart.
-
-Implementers interested in using YAML as a more efficient format
-to serialize information intented to be consumed in JSON,
-needs to ensure that relevant information will not be lost during
-the processing, and might want to use a restricted YAML profile.
-
-### Arbitrary code execution
-
-YAML has some features like explicit typing (e.g. `!!str`) and local tags that,
+YAML has some features like explicit typing (e.g. `!!omap`) and local tags that,
 depending on the implementation, might trigger unexpected code execution.
 
 ~~~ python
@@ -292,27 +325,35 @@ that code execution would result to strictly bounded time/memory limits.
 Many implementations provide safe deserializers addressing these issues
 (e.g the `yaml.safe_load` function in `pyyaml`, ...).
 
-### Resource exhaustion
+### Resource exhaustion {#sec-exhaustion}
 
-YAML documents may contain reference cycles,
-so they can't be treated as tree structures.
-An implementation that attempts to treat a cyclic document as a tree structure
-may infinite-loop at some point (e.g. when trying to serialize a YAML document in JSON).
+YAML documents are rooted, connected, directed graph
+and can contain reference cycles,
+so they can't be treated as simple trees (see Section 3.2.1 of [yaml]).
+An implementation that attempts to do that
+can infinite-loop at some point (e.g. when trying to serialize a YAML document in JSON).
 
-Even if a document is not cyclic, treating it as a tree may lead to improper behavior
+~~~ yaml
+x: &x
+  y: *x
+~~~
+{: title="A cyclic document" #example-yaml-cyclic}
+
+Even if a document is not cyclic, treating it as a tree could lead to improper behaviors
 (such as the "billion laughs" problem).
 
 ~~~ yaml
-x:  &a1 ["a", "a"]
+x1: &a1 ["a", "a"]
 x2: &a2 [*a1, *a1]
 x3: &a3 [*a2, *a2]
 ~~~
+{: title="A billion laughs document" #example-yaml-1e9lol}
 
 This can be addressed using processors limiting the anchor recursion depth
 and validating the input before processing it;
 even in these cases it is important
 to carefully test the implementation you are going to use.
-The same considerations apply when serializing a YAML object
+The same considerations apply when serializing a YAML representation graph
 in a format that do not support reference cycles (see {{sec-yaml-and-json}}).
 
 # IANA Considerations
