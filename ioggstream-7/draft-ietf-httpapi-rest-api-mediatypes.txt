@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           26 January 2022
-Expires: 30 July 2022
+Intended status: Informational                           28 January 2022
+Expires: 1 August 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 July 2022.
+   This Internet-Draft will expire on 1 August 2022.
 
 Copyright Notice
 
@@ -377,7 +377,7 @@ Table of Contents
 
    Magic number(s): n/a
 
-   File extension(s): json
+   File extension(s): json, schema.json
 
    Macintosh file type code(s): n/a
 
@@ -464,8 +464,8 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-   [yaml]     Oren Ben-Kiki, ., Clark Evans, ., and . Ingy doet Net,
-              "YAML Ain’t Markup Language Version 1.2", 1 October 2002,
+   [yaml]     Oren Ben-Kiki, ., Clark Evans, ., and . Ingy dot Net,
+              "YAML Ain't Markup Language Version 1.2", 1 October 2002,
               <https://yaml.org/spec/1.2/spec.html>.
 
 Appendix A.  Acknowledgements
@@ -476,7 +476,7 @@ Appendix A.  Acknowledgements
 
    In addition to the people above, this document owes a lot to the
    extensive discussion inside and outside the HTTPAPI workgroup,
-   including Eemeli Aro and Ingy doet Net.
+   including Eemeli Aro and Ingy dot Net.
 
 FAQ
 
