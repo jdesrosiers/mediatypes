@@ -1369,7 +1369,7 @@ It is important to note though, that when serializing a YAML document
 in JSON, information can be discarded: this includes comments and references
 that do not have a JSON counterpart.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">When using YAML as a more efficient format
-to serialize information intented to be consumed in JSON,
+to serialize information to be consumed in JSON,
 implementers need to ensure that relevant information will not be lost during
 the processing, and might want to use a restricted YAML schema
 such as the "YAML Failsafe schema" (see Section 10.1 of <span>[<a href="#yaml" class="xref">yaml</a>]</span>)
@@ -1389,7 +1389,7 @@ As an example, one could decide to only support the following ones:<a href="#sec
 <p id="section-3.1-4">YAML features that may have interoperability
 issues with JSON include:<a href="#section-3.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.1-5.1">non UTF-8 encoding;<a href="#section-3.1-5.1" class="pilcrow">¶</a>
+<li class="normal" id="section-3.1-5.1">non UTF-8 encoding, since YAML supports UTF-16 and UTF-32 in addition to UTF-8;<a href="#section-3.1-5.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-3.1-5.2">
             <code>.inf</code> and <code>.nan</code> float values,
@@ -1402,9 +1402,27 @@ despite the fact they are enumerated in the "YAML JSON schema"
           <li class="normal" id="section-3.1-5.4">local tags such as <code>!!python/object</code> and
 <code>!mytag</code> (see Section 2.4 of <span>[<a href="#yaml" class="xref">yaml</a>]</span>);<a href="#section-3.1-5.4" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-3.1-5.5">complex mapping keys via the <code>? </code> syntax (see Section 2.2 of <span>[<a href="#yaml" class="xref">yaml</a>]</span>);<a href="#section-3.1-5.5" class="pilcrow">¶</a>
+          <li class="normal" id="section-3.1-5.5">mapping keys that are non-scalar or of non-JSON types (see Section 2.2 of <span>[<a href="#yaml" class="xref">yaml</a>]</span>);<a href="#section-3.1-5.5" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-3.1-5.6">circular references represented using anchor (see <a href="#sec-exhaustion" class="xref">Section 4.1.2</a>).<a href="#section-3.1-5.6" class="pilcrow">¶</a>
+        </ul>
+<span id="name-example-of-mapping-keys-not"></span><div id="example-unsupported-keys">
+<figure id="figure-1">
+          <div id="section-3.1-6.1">
+<pre class="lang-example sourcecode">
+non-json-keys:
+  2020-01-01: a timestamp
+  [0, 1]: a sequence
+  ? {k: v}
+  : a map
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-example-of-mapping-keys-not" class="selfRef">Example of mapping keys not supported in JSON</a>
+          </figcaption></figure>
+</div>
+<ul class="normal">
+<li class="normal" id="section-3.1-7.1">circular references represented using anchor (see <a href="#sec-exhaustion" class="xref">Section 4.1.2</a>
+and <a href="#example-yaml-cyclic" class="xref">Figure 2</a>).<a href="#section-3.1-7.1" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
@@ -1456,21 +1474,21 @@ so they can't be treated as simple trees (see Section 3.2.1 of <span>[<a href="#
 An implementation that attempts to do that
 can infinite-loop at some point (e.g. when trying to serialize a YAML document in JSON).<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 <span id="name-a-cyclic-document"></span><div id="example-yaml-cyclic">
-<figure id="figure-1">
+<figure id="figure-2">
             <div id="section-4.1.2-2.1">
 <pre class="lang-yaml sourcecode">
 x: &amp;x
   y: *x
 </pre>
 </div>
-<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
 <a href="#name-a-cyclic-document" class="selfRef">A cyclic document</a>
             </figcaption></figure>
 </div>
 <p id="section-4.1.2-3">Even if a document is not cyclic, treating it as a tree could lead to improper behaviors
 (such as the "billion laughs" problem).<a href="#section-4.1.2-3" class="pilcrow">¶</a></p>
 <span id="name-a-billion-laughs-document"></span><div id="example-yaml-1e9lol">
-<figure id="figure-2">
+<figure id="figure-3">
             <div id="section-4.1.2-4.1">
 <pre class="lang-yaml sourcecode">
 x1: &amp;a1 ["a", "a"]
@@ -1478,7 +1496,7 @@ x2: &amp;a2 [*a1, *a1]
 x3: &amp;a3 [*a2, *a2]
 </pre>
 </div>
-<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
 <a href="#name-a-billion-laughs-document" class="selfRef">A billion laughs document</a>
             </figcaption></figure>
 </div>
@@ -1565,7 +1583,7 @@ with the registration information provided below.<a href="#section-5-2" class="p
 <dd class="break"></dd>
 <dt id="yaml">[yaml]</dt>
     <dd>
-<span class="refAuthor">Oren Ben-Kiki, .</span>, <span class="refAuthor">Clark Evans, .</span>, and <span class="refAuthor">. Ingy doet Net</span>, <span class="refTitle">"YAML Ain’t Markup Language Version 1.2"</span>, <time datetime="2002-10-01" class="refDate">1 October 2002</time>, <span>&lt;<a href="https://yaml.org/spec/1.2/spec.html">https://yaml.org/spec/1.2/spec.html</a>&gt;</span>. </dd>
+<span class="refAuthor">Oren Ben-Kiki, .</span>, <span class="refAuthor">Clark Evans, .</span>, and <span class="refAuthor">. Ingy dot Net</span>, <span class="refTitle">"YAML Ain't Markup Language Version 1.2"</span>, <time datetime="2002-10-01" class="refDate">1 October 2002</time>, <span>&lt;<a href="https://yaml.org/spec/1.2/spec.html">https://yaml.org/spec/1.2/spec.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1578,7 +1596,7 @@ with the registration information provided below.<a href="#section-5-2" class="p
 and to Darrel Miller and Rich Salz for their support during the adoption phase.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">In addition to the people above, this document owes a lot to the extensive discussion inside
 and outside the HTTPAPI workgroup,
-including Eemeli Aro and Ingy doet Net.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+including Eemeli Aro and Ingy dot Net.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="faq">
