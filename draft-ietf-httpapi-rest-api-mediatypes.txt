@@ -404,18 +404,19 @@ Internet-Draft            REST API Media Types              January 2022
 
 4.1.2.  Resource exhaustion
 
-   YAML documents may contain reference cycles, so they can't be treated
-   as directed tree structures.  An implementation that attempts to do
-   that may infinite-loop at some point (e.g. when trying to serialize a
-   YAML document in JSON).
+   YAML documents are rooted, connected, directed graph and can contain
+   reference cycles, so they can't be treated as simple trees (see
+   Section 3.2.1 of [yaml]).  An implementation that attempts to do that
+   can infinite-loop at some point (e.g. when trying to serialize a YAML
+   document in JSON).
 
    x: &x
      y: *x
 
                         Figure 1: A cyclic document
 
-   Even if a document is not cyclic, treating it as a tree may lead to
-   improper behavior (such as the "billion laughs" problem).
+   Even if a document is not cyclic, treating it as a tree could lead to
+   improper behaviors (such as the "billion laughs" problem).
 
    x1: &a1 ["a", "a"]
    x2: &a2 [*a1, *a1]
@@ -439,7 +440,6 @@ Internet-Draft            REST API Media Types              January 2022
    https://www.iana.org/assignments/media-types
    (https://www.iana.org/assignments/media-types) with the registration
    information provided below.
-
 
 
 

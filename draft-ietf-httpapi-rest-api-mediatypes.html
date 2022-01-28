@@ -1253,10 +1253,11 @@ that code execution would result to strictly bounded time/memory limits.<a href=
           <h4 id="name-resource-exhaustion">
 <a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-resource-exhaustion" class="section-name selfRef">Resource exhaustion</a>
           </h4>
-<p id="section-4.1.2-1">YAML documents may contain reference cycles,
-so they can't be treated as directed tree structures.
+<p id="section-4.1.2-1">YAML documents are rooted, connected, directed graph
+and can contain reference cycles,
+so they can't be treated as simple trees (see Section 3.2.1 of <span>[<a href="#yaml" class="xref">yaml</a>]</span>).
 An implementation that attempts to do that
-may infinite-loop at some point (e.g. when trying to serialize a YAML document in JSON).<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+can infinite-loop at some point (e.g. when trying to serialize a YAML document in JSON).<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
 <span id="name-a-cyclic-document"></span><div id="example-yaml-cyclic">
 <figure id="figure-1">
             <div id="section-4.1.2-2.1">
@@ -1269,7 +1270,7 @@ x: &amp;x
 <a href="#name-a-cyclic-document" class="selfRef">A cyclic document</a>
             </figcaption></figure>
 </div>
-<p id="section-4.1.2-3">Even if a document is not cyclic, treating it as a tree may lead to improper behavior
+<p id="section-4.1.2-3">Even if a document is not cyclic, treating it as a tree could lead to improper behaviors
 (such as the "billion laughs" problem).<a href="#section-4.1.2-3" class="pilcrow">¶</a></p>
 <span id="name-a-billion-laughs-document"></span><div id="example-yaml-1e9lol">
 <figure id="figure-2">
