@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           28 January 2022
-Expires: 1 August 2022
+Intended status: Informational                           31 January 2022
+Expires: 4 August 2022
 
 
                           REST API Media Types
@@ -27,8 +27,8 @@ Note to Readers
    (https://mailarchive.ietf.org/arch/browse/httpapi/).
 
    The source code and issues list for this draft can be found at
-   https://github.com/ioggstream/draft-polli-rest-api-mediatypes
-   (https://github.com/ioggstream/draft-polli-rest-api-mediatypes).
+   https://github.com/ietf-wg-httpapi/mediatypes (https://github.com/
+   ietf-wg-httpapi/mediatypes).
 
 Status of This Memo
 
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 August 2022.
+   This Internet-Draft will expire on 4 August 2022.
 
 Copyright Notice
 
