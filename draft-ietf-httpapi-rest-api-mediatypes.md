@@ -283,7 +283,7 @@ issues with JSON include:
   (see Section 10.2.1.4 of [yaml]);
 - non-JSON types, including  the following tags:
   `!!timestamp`, `!!set`, `!!omap` and `!!pairs`;
-- local tags such as `!!python/object` and
+- custom and local tags such as `!!python/object` and
   `!mytag` (see Section 2.4 of [yaml]);
 - mapping keys that are non-scalar or of non-JSON types (see Section 2.2 of [yaml]);
 
