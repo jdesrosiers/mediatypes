@@ -262,7 +262,7 @@ It is important to note though, that when serializing a YAML document
 in JSON, information can be discarded: this includes comments and references
 that do not have a JSON counterpart.
 
-When using YAML as a more efficient format
+When using YAML
 to serialize information to be consumed in JSON,
 implementers need to ensure that relevant information will not be lost during
 the processing, and might want to use a restricted YAML schema
