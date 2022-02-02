@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           31 January 2022
-Expires: 4 August 2022
+Intended status: Informational                           2 February 2022
+Expires: 6 August 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 August 2022.
+   This Internet-Draft will expire on 6 August 2022.
 
 Copyright Notice
 
@@ -289,12 +289,12 @@ Table of Contents
    JSON, information can be discarded: this includes comments and
    references that do not have a JSON counterpart.
 
-   When using YAML as a more efficient format to serialize information
-   to be consumed in JSON, implementers need to ensure that relevant
-   information will not be lost during the processing, and might want to
-   use a restricted YAML schema such as the "YAML Failsafe schema" (see
-   Section 10.1 of [yaml]) or limit to the admitted tags.  As an
-   example, one could decide to only support the following ones:
+   When using YAML to serialize information to be consumed in JSON,
+   implementers need to ensure that relevant information will not be
+   lost during the processing, and might want to use a restricted YAML
+   schema such as the "YAML Failsafe schema" (see Section 10.1 of
+   [yaml]) or limit to the admitted tags.  As an example, one could
+   decide to only support the following ones:
 
    *  !!str, !!int, !!map, !!seq;
 
