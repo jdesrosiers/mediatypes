@@ -341,10 +341,10 @@ yaml.unsafe_load(document)
 Code execution in deserializers should be disabled by default,
 and only be enabled explicitly.
 In those cases, the implementation should ensure - for example, via specific functions -
-that code execution would result to strictly bounded time/memory limits.
+that the code execution results in strictly bounded time/memory limits.
 
 Many implementations provide safe deserializers addressing these issues
-(e.g the `yaml.safe_load` function in `pyyaml`, ...).
+(e.g. the `yaml.safe_load` function in `pyyaml`, ...).
 
 ### Resource exhaustion {#sec-exhaustion}
 
