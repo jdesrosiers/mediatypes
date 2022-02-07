@@ -259,13 +259,33 @@ Change controller:  n/a
 Since YAML [yaml] is a superset of JSON [JSON],
 the same interoperability considerations apply when using that syntax.
 It is important to note though, that when serializing a YAML document
-in JSON, information can be discarded: this includes comments and references
+in JSON, information can be discarded:
+this includes comments (see Section 3.2.3.3 of [yaml])
+and alias nodes (see Section 7.1 of [yaml])
 that do not have a JSON counterpart.
+
+~~~ example
+# This comment will be lost
+# when serializing in JSON.
+Title:
+  type: string
+  maxLength: &text_limit 64
+
+Name:
+  type: string
+  maxLength: *text_limit  # Replaced by the value 64.
+~~~
+{: title="JSON replaces alias nodes with static values." #example-json-discards-information}
 
 When using YAML
 to serialize information to be consumed in JSON,
-implementers need to ensure that relevant information will not be lost during
-the processing, and might want to use a restricted YAML schema
+implementers need to verify
+that information that they consider relevant
+will not be lost during the processing.
+For example, they might consider acceptable
+that alias nodes are replaced by static values.
+
+In some cases an implementer can adopt a restricted YAML schema
 such as the "YAML Failsafe schema" (see Section 10.1 of [yaml])
 or limit to the admitted tags.
 As an example, one could decide to only support the following ones:
@@ -298,6 +318,7 @@ non-json-keys:
 
 - circular references represented using anchor (see {{sec-exhaustion}}
   and {{example-yaml-cyclic}}).
+
 
 # Security Considerations
 
