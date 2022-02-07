@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           2 February 2022
-Expires: 6 August 2022
+Intended status: Informational                           7 February 2022
+Expires: 11 August 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2022.
+   This Internet-Draft will expire on 11 August 2022.
 
 Copyright Notice
 
@@ -286,15 +286,32 @@ Table of Contents
    Since YAML [yaml] is a superset of JSON [JSON], the same
    interoperability considerations apply when using that syntax.  It is
    important to note though, that when serializing a YAML document in
-   JSON, information can be discarded: this includes comments and
-   references that do not have a JSON counterpart.
+   JSON, information can be discarded: this includes comments (see
+   Section 3.2.3.3 of [yaml]) and alias nodes (see Section 7.1 of
+   [yaml]) that do not have a JSON counterpart.
+
+   # This comment will be lost
+   # when serializing in JSON.
+   Title:
+     type: string
+     maxLength: &text_limit 64
+
+   Name:
+     type: string
+     maxLength: *text_limit  # Replaced by the value 64.
+
+          Figure 1: JSON replaces alias nodes with static values.
 
    When using YAML to serialize information to be consumed in JSON,
-   implementers need to ensure that relevant information will not be
-   lost during the processing, and might want to use a restricted YAML
-   schema such as the "YAML Failsafe schema" (see Section 10.1 of
-   [yaml]) or limit to the admitted tags.  As an example, one could
-   decide to only support the following ones:
+   implementers need to verify that information that they consider
+   relevant will not be lost during the processing.  For example, they
+   might consider acceptable that alias nodes are replaced by static
+   values.
+
+   In some cases an implementer can adopt a restricted YAML schema such
+   as the "YAML Failsafe schema" (see Section 10.1 of [yaml]) or limit
+   to the admitted tags.  As an example, one could decide to only
+   support the following ones:
 
    *  !!str, !!int, !!map, !!seq;
 
@@ -326,10 +343,10 @@ Table of Contents
      ? {k: v}
      : a map
 
-          Figure 1: Example of mapping keys not supported in JSON
+          Figure 2: Example of mapping keys not supported in JSON
 
    *  circular references represented using anchor (see Section 4.1.2
-      and Figure 2).
+      and Figure 3).
 
 4.  Security Considerations
 
@@ -367,7 +384,7 @@ Table of Contents
    x: &x
      y: *x
 
-                        Figure 2: A cyclic document
+                        Figure 3: A cyclic document
 
    Even if a document is not cyclic, treating it as a tree could lead to
    improper behaviors (such as the "billion laughs" problem).
@@ -376,7 +393,7 @@ Table of Contents
    x2: &a2 [*a1, *a1]
    x3: &a3 [*a2, *a2]
 
-                    Figure 3: A billion laughs document
+                    Figure 4: A billion laughs document
 
    This can be addressed using processors limiting the anchor recursion
    depth and validating the input before processing it; even in these
