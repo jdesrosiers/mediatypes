@@ -332,19 +332,13 @@ registrations are discussed in Section 4.6 of {{!MEDIATYPE=RFC6838}}.
 YAML has some features like explicit typing (e.g. `!!omap`) and local tags that,
 depending on the implementation, might trigger unexpected code execution.
 
-~~~ python
-document = "!!python/object/apply:os.system ['echo boom!']"
-yaml.unsafe_load(document)
-# boom!
-~~~
 
 Code execution in deserializers should be disabled by default,
 and only be enabled explicitly.
 In those cases, the implementation should ensure - for example, via specific functions -
 that the code execution results in strictly bounded time/memory limits.
 
-Many implementations provide safe deserializers addressing these issues
-(e.g. the `yaml.safe_load` function in `pyyaml`, ...).
+Many implementations provide safe deserializers addressing these issues.
 
 ### Resource exhaustion {#sec-exhaustion}
 
