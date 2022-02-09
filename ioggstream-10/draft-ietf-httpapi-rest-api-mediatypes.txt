@@ -4,8 +4,8 @@
 
 HTTPAPI                                                         R. Polli
 Internet-Draft     Digital Transformation Department, Italian Government
-Intended status: Informational                           7 February 2022
-Expires: 11 August 2022
+Intended status: Informational                           9 February 2022
+Expires: 13 August 2022
 
 
                           REST API Media Types
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 August 2022.
+   This Internet-Draft will expire on 13 August 2022.
 
 Copyright Notice
 
@@ -283,12 +283,12 @@ Table of Contents
 
 3.1.  YAML and JSON
 
-   Since YAML [yaml] is a superset of JSON [JSON], the same
-   interoperability considerations apply when using that syntax.  It is
-   important to note though, that when serializing a YAML document in
-   JSON, information can be discarded: this includes comments (see
-   Section 3.2.3.3 of [yaml]) and alias nodes (see Section 7.1 of
-   [yaml]) that do not have a JSON counterpart.
+   JSON [JSON] interoperability considerations apply when using JSON
+   syntax in YAML [yaml] documents.  It is important to note though,
+   that when serializing a YAML document in JSON, information can be
+   discarded: this includes comments (see Section 3.2.3.3 of [yaml]) and
+   alias nodes (see Section 7.1 of [yaml]) that do not have a JSON
+   counterpart.
 
    # This comment will be lost
    # when serializing in JSON.
@@ -308,19 +308,9 @@ Table of Contents
    might consider acceptable that alias nodes are replaced by static
    values.
 
-   In some cases an implementer can adopt a restricted YAML schema such
-   as the "YAML Failsafe schema" (see Section 10.1 of [yaml]) or limit
-   to the admitted tags.  As an example, one could decide to only
-   support the following ones:
-
-   *  !!str, !!int, !!map, !!seq;
-
-   *  !!float without the .inf and .nan values;
-
-   *  !!merge
-
-   YAML features that may have interoperability issues with JSON
-   include:
+   In some cases an implementer may want to define a list of allowed
+   YAML features, and consider that the following ones may have
+   interoperability issues with JSON:
 
    *  non UTF-8 encoding, since YAML supports UTF-16 and UTF-32 in
       addition to UTF-8;
@@ -328,8 +318,7 @@ Table of Contents
    *  .inf and .nan float values, despite the fact they are enumerated
       in the "YAML JSON schema" (see Section 10.2.1.4 of [yaml]);
 
-   *  non-JSON types, including the following tags: !!timestamp, !!set,
-      !!omap and !!pairs;
+   *  non-JSON types, including ones associated to !!timestamp, !!set;
 
    *  custom and local tags such as !!python/object and !mytag (see
       Section 2.4 of [yaml]);
@@ -356,9 +345,8 @@ Table of Contents
 
 4.1.1.  Arbitrary code execution
 
-   YAML has some features like explicit typing (e.g. !!omap) and local
-   tags that, depending on the implementation, might trigger unexpected
-   code execution.
+   Care should be used when using YAML tags, because their
+   implementation might trigger unexpected code execution.
 
    Code execution in deserializers should be disabled by default, and
    only be enabled explicitly.  In those cases, the implementation
@@ -455,8 +443,8 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
    [yaml]     Oren Ben-Kiki, ., Clark Evans, ., and . Ingy dot Net,
-              "YAML Ain't Markup Language Version 1.2", 1 October 2002,
-              <https://yaml.org/spec/1.2/spec.html>.
+              "YAML Ain't Markup Language Version 1.2.2", 1 October
+              2021, <https://yaml.org/spec/1.2.2/>.
 
 Appendix A.  Acknowledgements
 
