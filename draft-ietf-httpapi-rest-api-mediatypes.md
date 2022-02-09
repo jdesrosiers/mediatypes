@@ -22,13 +22,13 @@ author:
 
 normative:
   yaml:
-    title: YAML Ain't Markup Language Version 1.2
-    date: 2002-10-01
+    title: YAML Ain't Markup Language Version 1.2.2
+    date: 2021-10-01
     author:
     - ins: Oren Ben-Kiki
     - ins: Clark Evans
     - ins: Ingy dot Net
-    target: https://yaml.org/spec/1.2/spec.html
+    target: https://yaml.org/spec/1.2.2/
   oas:
     title: OpenAPI Specification 3.0.0
     date: 2017-07-26
@@ -256,8 +256,8 @@ Change controller:  n/a
 
 ## YAML and JSON {#sec-yaml-and-json}
 
-Since YAML [yaml] is a superset of JSON [JSON],
-the same interoperability considerations apply when using that syntax.
+JSON [JSON] interoperability considerations apply when using
+JSON syntax in YAML [yaml] documents.
 It is important to note though, that when serializing a YAML document
 in JSON, information can be discarded:
 this includes comments (see Section 3.2.3.3 of [yaml])
@@ -285,24 +285,18 @@ will not be lost during the processing.
 For example, they might consider acceptable
 that alias nodes are replaced by static values.
 
-In some cases an implementer can adopt a restricted YAML schema
-such as the "YAML Failsafe schema" (see Section 10.1 of [yaml])
-or limit to the admitted tags.
-As an example, one could decide to only support the following ones:
-
-- `!!str`, `!!int`, `!!map`, `!!seq`;
-- `!!float` without the `.inf` and `.nan` values;
-- `!!merge`
-
-YAML features that may have interoperability
-issues with JSON include:
+In some cases an implementer may want to
+define a list of allowed YAML features,
+and consider that the following ones 
+may have interoperability
+issues with JSON:
 
 - non UTF-8 encoding, since YAML supports UTF-16 and UTF-32 in addition to UTF-8;
 - `.inf` and `.nan` float values,
   despite the fact they are enumerated in the "YAML JSON schema"
   (see Section 10.2.1.4 of [yaml]);
-- non-JSON types, including  the following tags:
-  `!!timestamp`, `!!set`, `!!omap` and `!!pairs`;
+- non-JSON types,
+  including ones associated to `!!timestamp`, `!!set`;
 - custom and local tags such as `!!python/object` and
   `!mytag` (see Section 2.4 of [yaml]);
 - mapping keys that are not strings;
@@ -329,9 +323,8 @@ registrations are discussed in Section 4.6 of {{!MEDIATYPE=RFC6838}}.
 
 ### Arbitrary code execution {#sec-code-execution}
 
-YAML has some features like explicit typing (e.g. `!!omap`) and local tags that,
-depending on the implementation, might trigger unexpected code execution.
-
+Care should be used when using YAML tags,
+because their implementation might trigger unexpected code execution.
 
 Code execution in deserializers should be disabled by default,
 and only be enabled explicitly.
